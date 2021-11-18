@@ -38,5 +38,15 @@ public class PersonaModelUnitTest {
         Assertions.assertEquals("El nombre es obligatorio", excepcionNulo.getMessage());
         Assertions.assertEquals("El nombre es obligatorio", excepcionVacio.getMessage());
     }
+
+    @Test
+    public void InstanciarPersona_FaltaFechaNacimiento_PersonaIncompletaException() {
+        Exception excepcionNulo = Assertions.assertThrows(PersonaIncompletaException.class, () -> Persona.instancia(1, "Quintero", "Juanfer", null, "31313131", 1.5, 90.0));
+        Assertions.assertEquals("FechaNacimiento es obligatorio", excepcionNulo.getMessage());
+    }
+
+
 }
+
+
 
